@@ -206,7 +206,7 @@ DB_PASS=0bkFKZtiEjYibyzw
 5. Open a pull request for review.
 
 ## License
-
+ 
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
 ---
