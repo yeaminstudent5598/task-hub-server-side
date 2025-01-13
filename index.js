@@ -10,7 +10,8 @@ const port = process.env.PORT || 5000;
 
 
 app.use(cors({
-  origin: ['https://task-hub-e1fcb.web.app'], 
+  origin: ['https://task-hub-e1fcb.web.app'],
+   
   credentials: true
 }));
 app.use(cookieParser());
@@ -201,10 +202,10 @@ async function run() {
     });
     
     
-    app.patch('/mark-update/:id', async(req, res) =>{
+    app.put('/mark-update/:id', async(req, res) =>{
       const {id}= req.params
       console.log(id);
-      const {obtainedMarks,feedback, title, status} = req.body;
+      const {obtainedMarks,feedback, title, status,displayName} = req.body;
       const filter = {_id : new ObjectId (id)}
       const update = {
         $set: {
@@ -310,7 +311,7 @@ async function run() {
           ? submissions.filter((submission) => submission.userEmail === email)
           : submissions;
     
-        res.status(200).json(filteredSubmissions);
+        res.status(200).json(submissions);
       } catch (error) {
         console.error('Error fetching submissions:', error);
         res.status(500).json({ message: 'Internal server error' });
