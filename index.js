@@ -9,8 +9,12 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const port = process.env.PORT || 5000;
 
  
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://task-hub-e1fcb.web.app'
+];
 app.use(cors({
-  origin: ['https://task-hub-e1fcb.web.app'],
+  origin: allowedOrigins,
    
   credentials: true
 }));
